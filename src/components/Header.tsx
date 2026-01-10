@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { CONTACT_INFO } from "@/config/contact";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
 ];
 
 export function Header() {
+  const { contactInfo } = useContactInfo();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -81,14 +82,14 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
-              alt="Gracie Reticulation Services"
+              alt={contactInfo.businessName}
               width={44}
               height={44}
               className="rounded-sm"
               priority
             />
             <div>
-              <div className="text-sm font-semibold text-neutral-900">Gracie Reticulation</div>
+              <div className="text-sm font-semibold text-neutral-900">{contactInfo.businessName}</div>
               <div className="text-xs text-neutral-600">Perth Irrigation Specialists</div>
             </div>
           </div>
@@ -124,19 +125,19 @@ export function Header() {
 
         <div className="p-5 border-t border-neutral-200 space-y-3 bg-white">
           <a
-            href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+            href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
             className="block w-full text-center px-4 py-3 rounded-sm border border-neutral-200 hover:border-brand hover:text-brand transition-colors font-medium"
           >
-            Call: {CONTACT_INFO.phone}
+            Call: {contactInfo.phone}
           </a>
           <a
-            href={`mailto:${CONTACT_INFO.email}`}
+            href={`mailto:${contactInfo.email}`}
             className="block w-full text-center px-4 py-3 rounded-sm border border-neutral-200 hover:border-water hover:text-water transition-colors font-medium"
           >
             Email
           </a>
           <a
-            href={CONTACT_INFO.facebook}
+            href={contactInfo.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full text-center px-4 py-3 rounded-sm border border-neutral-200 hover:border-water hover:text-water transition-colors font-medium"
@@ -174,7 +175,7 @@ export function Header() {
                 }`}>
                   <Image
                     src="/images/logo.png"
-                    alt="Gracie Reticulation Services"
+                    alt={contactInfo.businessName}
                     width={80}
                     height={80}
                     className="rounded-md"
@@ -187,7 +188,7 @@ export function Header() {
                       isScrolled ? "text-neutral-900" : "text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
                     }`}
                   >
-                    Gracie Reticulation Services
+                    {contactInfo.businessName}
                   </div>
                   <div
                     className={`text-xs transition-colors ${
@@ -219,14 +220,14 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+              href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
               className={`hidden xl:inline-flex text-sm font-medium transition-colors ${
                 isScrolled
                   ? "text-neutral-700 hover:text-brand"
                   : "text-white/85 hover:text-brand"
               }`}
             >
-              {CONTACT_INFO.phone}
+              {contactInfo.phone}
             </a>
             <button
               onClick={scrollToForm}

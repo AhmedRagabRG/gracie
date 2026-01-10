@@ -11,6 +11,7 @@ const SERVICES: ServiceItem[] = [
     items: [
       "Reticulation fault-finding and diagnostics",
       "Leak detection and repairs",
+      "Bore and pump troubleshooting",
       "Solenoid locating and wire tracing",
       "Controller replacement, setup & programming (smart and standard)",
       "Water-efficient tuning, system optimisation & usage readings",

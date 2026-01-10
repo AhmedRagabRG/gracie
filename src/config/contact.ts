@@ -3,6 +3,7 @@ import { ContactInfo } from "@/types/enquiry";
 // GRACIE RETICULATION — Actual Business Details
 export const CONTACT_INFO: ContactInfo = {
   phone: "+61 481 613 577",
+  sms: "+61 481 613 577", // Can be different number for SMS
   email: "admin@graciereticulation.com.au",
   facebook: "https://www.facebook.com/graciereticulationservices/",
   businessName: "Gracie Reticulation",

@@ -24,6 +24,7 @@ export type ServiceType =
 
 export interface ContactInfo {
   phone: string;
+  sms: string;
   email: string;
   facebook: string;
   businessName: string;

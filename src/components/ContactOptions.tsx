@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
-import { CONTACT_INFO } from "@/config/contact";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 export function ContactOptions() {
+  const { contactInfo } = useContactInfo();
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-white via-water-muted to-white">
       <div className="container mx-auto px-6 lg:px-12">
@@ -20,7 +23,7 @@ export function ContactOptions() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Phone */}
             <a
-              href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+              href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
               className="group bg-white border border-neutral-200 p-8 rounded-sm hover:border-brand transition-all duration-300 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
@@ -44,7 +47,7 @@ export function ContactOptions() {
                     Phone
                   </h3>
                   <p className="text-2xl font-light text-neutral-900 group-hover:text-brand transition-colors">
-                    {CONTACT_INFO.phone}
+                    {contactInfo.phone}
                   </p>
                 </div>
               </div>
@@ -52,7 +55,7 @@ export function ContactOptions() {
 
             {/* Email */}
             <a
-              href={`mailto:${CONTACT_INFO.email}`}
+              href={`mailto:${contactInfo.email}`}
               className="group bg-white border border-neutral-200 p-8 rounded-sm hover:border-brand transition-all duration-300 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
@@ -76,7 +79,7 @@ export function ContactOptions() {
                     Email
                   </h3>
                   <p className="text-lg font-light text-neutral-900 group-hover:text-water transition-colors break-all">
-                    {CONTACT_INFO.email}
+                    {contactInfo.email}
                   </p>
                 </div>
               </div>
@@ -84,7 +87,7 @@ export function ContactOptions() {
 
             {/* SMS */}
             <a
-              href={`sms:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+              href={`sms:${contactInfo.sms.replace(/\s/g, "")}`}
               className="group bg-white border border-neutral-200 p-8 rounded-sm hover:border-brand transition-all duration-300 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
@@ -108,7 +111,7 @@ export function ContactOptions() {
                     SMS / Text
                   </h3>
                   <p className="text-2xl font-light text-neutral-900 group-hover:text-brand transition-colors">
-                    {CONTACT_INFO.phone}
+                    {contactInfo.sms}
                   </p>
                 </div>
               </div>
@@ -116,7 +119,7 @@ export function ContactOptions() {
 
             {/* Facebook */}
             <a
-              href={CONTACT_INFO.facebook}
+              href={contactInfo.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white border border-neutral-200 p-8 rounded-sm hover:border-brand transition-all duration-300 hover:shadow-md"
@@ -151,7 +154,7 @@ export function ContactOptions() {
                   Business Hours
                 </h3>
                 <p className="text-lg text-neutral-900 leading-relaxed">
-                  {CONTACT_INFO.businessHours}
+                  {contactInfo.businessHours}
                 </p>
               </div>
               <div>
@@ -159,7 +162,7 @@ export function ContactOptions() {
                   Service Area
                 </h3>
                 <p className="text-lg text-neutral-900 leading-relaxed">
-                  {CONTACT_INFO.serviceArea}
+                  {contactInfo.serviceArea}
                 </p>
               </div>
             </div>

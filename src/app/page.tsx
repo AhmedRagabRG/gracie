@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/components/Header";
 import { HeroNew } from "@/components/HeroNew";
 import { Endorsements } from "@/components/Endorsements";
@@ -10,8 +12,16 @@ import { Reviews } from "@/components/Reviews";
 import { ContactOptions } from "@/components/ContactOptions";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Footer } from "@/components/Footer";
+import { Preloader } from "@/components/Preloader";
+import { useData } from "@/contexts/DataContext";
 
 export default function Home() {
+  const { loading } = useData();
+
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
     <>
       <Header />
