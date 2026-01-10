@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import { SERVICE_TYPES } from "@/config/contact";
 import type { EnquiryFormData } from "@/types/enquiry";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
+
+interface LeadTimeItem {
+  service: string;
+  leadTime: string;
+  available: boolean;
+}
 
 export function EnquiryForm() {
   const [formData, setFormData] = useState<EnquiryFormData>({
@@ -21,6 +27,32 @@ export function EnquiryForm() {
 
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  
+  // Lead times state
+  const [leadTimes, setLeadTimes] = useState<LeadTimeItem[]>([]);
+  const [leadTimesLoading, setLeadTimesLoading] = useState(true);
+
+  // Fetch lead times
+  useEffect(() => {
+    async function fetchLeadTimes() {
+      try {
+        const response = await fetch(`/api/lead-times?t=${Date.now()}`, {
+          cache: "no-store",
+        });
+        const result = await response.json();
+        
+        if (result.success && result.data) {
+          setLeadTimes(result.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch lead times:", error);
+      } finally {
+        setLeadTimesLoading(false);
+      }
+    }
+
+    fetchLeadTimes();
+  }, []);
 
   // Client-side validation
   const validateForm = (): string | null => {
@@ -112,6 +144,56 @@ export function EnquiryForm() {
               Fill in the form below and we'll get back to you shortly.
             </p>
           </div>
+
+          {/* Current Availability */}
+          {!leadTimesLoading && leadTimes.length > 0 && (
+            <div className="mb-8 p-6 bg-white border border-neutral-200 rounded-sm">
+              <div className="flex items-center gap-2 mb-4">
+                <svg
+                  className="w-5 h-5 text-brand"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <h3 className="text-lg font-medium text-neutral-900">
+                  Current Lead Times
+                </h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {leadTimes.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center justify-between p-3 rounded-sm border ${
+                      item.available
+                        ? "bg-brand-muted/30 border-brand/20"
+                        : "bg-neutral-50 border-neutral-200"
+                    }`}
+                  >
+                    <span className="text-sm font-medium text-neutral-900">
+                      {item.service}
+                    </span>
+                    <span
+                      className={`text-sm ${
+                        item.available ? "text-brand" : "text-neutral-600"
+                      }`}
+                    >
+                      {item.leadTime}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-neutral-500 italic mt-4">
+                Ongoing clients and urgent issues prioritised where possible.
+              </p>
+            </div>
+          )}
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
