@@ -6,22 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:reviews": "node scripts/generate-reviews.js",
+    "generate:gallery": "node scripts/generate-gallery.js",
+    "convert:images": "bash scripts/convert-heic-to-jpg.sh",
+    "rename:images": "bash scripts/rename-images.sh"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.23",
     "next": "16.1.1",
+    "postcss": "^8.5.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
-    "tailwindcss": "^4",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }
