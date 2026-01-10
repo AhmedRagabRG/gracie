@@ -59,6 +59,9 @@ export function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {contactInfo.businessName}. All rights reserved.
           </p>
+          <p className="mt-2 text-xs">
+            ABN: {contactInfo.abn}
+          </p>
         </div>
       </div>
     </footer>

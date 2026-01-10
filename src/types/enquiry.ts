@@ -30,4 +30,5 @@ export interface ContactInfo {
   businessName: string;
   serviceArea: string;
   businessHours: string;
+  abn: string;
 }

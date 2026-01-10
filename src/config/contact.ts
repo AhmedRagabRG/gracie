@@ -9,6 +9,7 @@ export const CONTACT_INFO: ContactInfo = {
   businessName: "Gracie Reticulation",
   serviceArea: "Based in Carramar, servicing the northern suburbs of Perth.",
   businessHours: "Mon–Fri: 8am–6pm | Saturday: By appointment",
+  abn: "39 251 002 244",
 };
 
 export const SERVICE_TYPES = [

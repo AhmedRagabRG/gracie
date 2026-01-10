@@ -9,6 +9,7 @@ interface ContactInfo {
   businessName: string;
   serviceArea: string;
   businessHours: string;
+  abn: string;
 }
 
 // Fallback data (used if Google Sheets fails or is not configured)
@@ -20,6 +21,7 @@ const FALLBACK_DATA: ContactInfo = {
   businessName: "Gracie Reticulation",
   serviceArea: "Based in Carramar, servicing the northern suburbs of Perth.",
   businessHours: "Mon–Fri: 8am–6pm | Saturday: By appointment",
+  abn: "39 251 002 244",
 };
 
 /**
@@ -96,6 +98,7 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
         else if (key.includes('business name') || key === 'business') contactInfo.businessName = value;
         else if (key.includes('service area') || key.includes('area')) contactInfo.serviceArea = value;
         else if (key.includes('business hours') || key.includes('hours')) contactInfo.businessHours = value;
+        else if (key.includes('abn')) contactInfo.abn = value;
       });
     } else {
       // Key-Value format: each row is key | value
@@ -118,6 +121,7 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
         else if (key.includes('business name')) contactInfo.businessName = value;
         else if (key.includes('service area')) contactInfo.serviceArea = value;
         else if (key.includes('business hours') || key.includes('hours')) contactInfo.businessHours = value;
+        else if (key.includes('abn')) contactInfo.abn = value;
       });
     }
 
@@ -130,6 +134,7 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
       businessName: contactInfo.businessName || FALLBACK_DATA.businessName,
       serviceArea: contactInfo.serviceArea || FALLBACK_DATA.serviceArea,
       businessHours: contactInfo.businessHours || FALLBACK_DATA.businessHours,
+      abn: contactInfo.abn || FALLBACK_DATA.abn,
     };
 
     console.log("Fetched contact info from Google Sheets");
