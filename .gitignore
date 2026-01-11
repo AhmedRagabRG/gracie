@@ -47,7 +47,6 @@ gracie-reticulation-app-*.zip
 
 # Backup folders
 public/images/website_images_backup_*/
-public
 
 # Documentation and Scripts
 *.md
