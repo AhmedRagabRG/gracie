@@ -112,7 +112,7 @@ export function HeroNew() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-sm text-neutral-300">15+ Years Experience</span>
+              <span className="text-sm text-neutral-300">20+ Years Experience</span>
             </div>
           </div>
 
@@ -154,7 +154,7 @@ export function HeroNew() {
               <div className="text-sm text-neutral-400">Jobs Completed</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-light text-white mb-1">20</div>
+              <div className="text-3xl md:text-4xl font-light text-white mb-1">20+</div>
               <div className="text-sm text-neutral-400">Years Experience</div>
             </div>
           </div>

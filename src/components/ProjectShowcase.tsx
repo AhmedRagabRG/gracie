@@ -40,11 +40,11 @@ export function ProjectShowcase({ id }: { id?: string }) {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div>
-                <div className="text-3xl font-light text-water mb-1">1,700+</div>
+                <div className="text-3xl font-light text-water mb-1">2,000+</div>
                 <div className="text-sm text-neutral-600">Jobs Completed</div>
               </div>
               <div>
-                <div className="text-3xl font-light text-water mb-1">15+</div>
+                <div className="text-3xl font-light text-water mb-1">20+</div>
                 <div className="text-sm text-neutral-600">Years Experience</div>
               </div>
             </div>
