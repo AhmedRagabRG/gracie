@@ -5,7 +5,6 @@ import { HeroNew } from "@/components/HeroNew";
 import { Endorsements } from "@/components/Endorsements";
 import { WhoWeAre } from "@/components/WhoWeAre";
 import { Services } from "@/components/Services";
-import { AvailabilityBanner } from "@/components/AvailabilityBanner";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { Reviews } from "@/components/Reviews";
@@ -30,7 +29,6 @@ export default function Home() {
         <Endorsements />
         <WhoWeAre />
         <Services />
-        <AvailabilityBanner />
         <ProjectShowcase id="showcase" />
         <PhotoGallery />
         <Reviews />

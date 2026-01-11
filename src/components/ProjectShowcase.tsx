@@ -2,13 +2,13 @@
 
 import React from "react";
 import { ImageCarousel } from "./ImageCarousel";
-import { WORK_PHOTOS } from "@/data/gallery";
+import { QUALITY_WORK_PHOTOS } from "@/data/gallery";
 
-// Use first 5 work photos (excluding team photos) for showcase carousel
-const SHOWCASE_IMAGES = WORK_PHOTOS.slice(0, 5).map((img, index) => ({
+// Use Quality Work photos for showcase carousel
+const SHOWCASE_IMAGES = QUALITY_WORK_PHOTOS.map((img, index) => ({
   src: img.src,
   alt: img.alt,
-  title: `Project ${index + 1}`,
+  title: `Quality Project ${index + 1}`,
 }));
 
 export function ProjectShowcase({ id }: { id?: string }) {

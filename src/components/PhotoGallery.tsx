@@ -1,6 +1,6 @@
 import React from "react";
 import { ModernGallery } from "@/components/ModernGallery";
-import { WORK_PHOTOS } from "@/data/gallery";
+import { GALLERY_IMAGES } from "@/data/gallery";
 
 export function PhotoGallery() {
   return (
@@ -15,12 +15,12 @@ export function PhotoGallery() {
             Recent Projects
           </h2>
           <p className="mt-4 text-neutral-600 max-w-2xl">
-            Browse {WORK_PHOTOS.length} real irrigation projects from across Perth — tap an image to preview, then open full-screen.
+            Browse {GALLERY_IMAGES.length} real irrigation projects from across Perth — tap an image to preview, then open full-screen.
           </p>
         </div>
 
-        {/* Modern Gallery (Hero image + thumbnails + lightbox) - Work photos only */}
-        <ModernGallery images={WORK_PHOTOS.map(({ src, alt }) => ({ src, alt }))} />
+        {/* Modern Gallery (Hero image + thumbnails + lightbox) - All gallery photos */}
+        <ModernGallery images={GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))} />
       </div>
     </section>
   );

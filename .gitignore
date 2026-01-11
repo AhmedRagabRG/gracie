@@ -48,6 +48,7 @@ gracie-reticulation-app-*.zip
 # Backup folders
 public/images/website_images_backup_*/
 public
-# Scripts (optional - uncomment if you don't want to commit them)
-# refresh-cache.sh
-# UPLOAD_TO_SERVER.sh
+
+# Documentation and Scripts
+*.md
+*.sh
