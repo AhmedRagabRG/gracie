@@ -2,10 +2,10 @@
 
 import React from "react";
 import { ImageCarousel } from "./ImageCarousel";
-import { GALLERY_IMAGES } from "@/data/gallery";
+import { WORK_PHOTOS } from "@/data/gallery";
 
-// Use first 5 images from gallery for showcase carousel
-const SHOWCASE_IMAGES = GALLERY_IMAGES.slice(0, 5).map((img, index) => ({
+// Use first 5 work photos (excluding team photos) for showcase carousel
+const SHOWCASE_IMAGES = WORK_PHOTOS.slice(0, 5).map((img, index) => ({
   src: img.src,
   alt: img.alt,
   title: `Project ${index + 1}`,

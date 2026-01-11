@@ -370,6 +370,46 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   }
 ];
 
+// Team photos (images with people in them) - for "Who We Are" section carousel
+// Starting with ute + 3 people photo
+export const TEAM_PHOTOS: GalleryImage[] = [
+  {
+    id: 17,
+    src: "/images/website_images/24.jpg", // Ute + 3 people
+    alt: "Gracie Reticulation team with company vehicle",
+    category: "team",
+  },
+  {
+    id: 1,
+    src: "/images/website_images/1.jpg",
+    alt: "Gracie Reticulation team at work",
+    category: "team",
+  },
+  {
+    id: 56,
+    src: "/images/website_images/6.jpg",
+    alt: "Team member working on irrigation system",
+    category: "team",
+  },
+  {
+    id: 57,
+    src: "/images/website_images/7.jpg",
+    alt: "Professional irrigation installation",
+    category: "team",
+  },
+  {
+    id: 58,
+    src: "/images/website_images/8.jpg",
+    alt: "Team at irrigation project site",
+    category: "team",
+  },
+];
+
+// Work photos only (excluding team photos) - for bottom gallery
+export const WORK_PHOTOS = GALLERY_IMAGES.filter(
+  (img) => !TEAM_PHOTOS.some((team) => team.id === img.id)
+);
+
 // Helper function to get total image count
 export const getTotalImages = () => GALLERY_IMAGES.length;
 
