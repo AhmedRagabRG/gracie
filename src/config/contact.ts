@@ -10,6 +10,11 @@ export const CONTACT_INFO: ContactInfo = {
   serviceArea: "Based in Carramar, servicing the northern suburbs of Perth.",
   businessHours: "Mon–Fri: 8am–6pm | Saturday: By appointment",
   abn: "39 251 002 244",
+  heroBadge: "Perth's Irrigation Experts",
+  heroHeadline: "Irrigation Systems",
+  heroTagline: "Engineered, Not Guessed.",
+  heroSubheadline: "Father–son team delivering precision diagnostics and water-efficient solutions. Based in Carramar, servicing the northern suburbs of Perth.",
+  heroBackgroundImage: "/images/website_images/1.jpg",
 };
 
 export const SERVICE_TYPES = [

@@ -17,7 +17,7 @@ export function HeroNew() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/website_images/1.jpg"
+          src={contactInfo.heroBackgroundImage}
           alt="Professional irrigation background"
           fill
           className="object-cover"
@@ -39,22 +39,21 @@ export function HeroNew() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand/20 backdrop-blur-sm border border-brand/30 rounded-full mb-8">
             <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
             <span className="text-xs uppercase tracking-wider text-white font-medium">
-              Perth's Irrigation Experts
+              {contactInfo.heroBadge}
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] text-white mb-6">
-            Irrigation Systems
+            {contactInfo.heroHeadline}
             <span className="block mt-2 text-water font-normal">
-              Engineered, Not Guessed.
+              {contactInfo.heroTagline}
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-2xl leading-relaxed">
-            Father–son team delivering precision diagnostics and water-efficient solutions.
-            Based in Carramar, servicing the northern suburbs of Perth.
+            {contactInfo.heroSubheadline}
           </p>
 
           {/* Trust Indicators */}

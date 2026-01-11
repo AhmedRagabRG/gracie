@@ -10,6 +10,11 @@ interface ContactInfo {
   serviceArea: string;
   businessHours: string;
   abn: string;
+  heroBadge: string;
+  heroHeadline: string;
+  heroTagline: string;
+  heroSubheadline: string;
+  heroBackgroundImage: string;
 }
 
 // Fallback data (used if Google Sheets fails or is not configured)
@@ -22,6 +27,11 @@ const FALLBACK_DATA: ContactInfo = {
   serviceArea: "Based in Carramar, servicing the northern suburbs of Perth.",
   businessHours: "Mon–Fri: 8am–6pm | Saturday: By appointment",
   abn: "39 251 002 244",
+  heroBadge: "Perth's Irrigation Experts",
+  heroHeadline: "Irrigation Systems",
+  heroTagline: "Engineered, Not Guessed.",
+  heroSubheadline: "Father–son team delivering precision diagnostics and water-efficient solutions. Based in Carramar, servicing the northern suburbs of Perth.",
+  heroBackgroundImage: "/images/website_images/1.jpg", // Default local image
 };
 
 /**
@@ -99,6 +109,11 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
         else if (key.includes('service area') || key.includes('area')) contactInfo.serviceArea = value;
         else if (key.includes('business hours') || key.includes('hours')) contactInfo.businessHours = value;
         else if (key.includes('abn')) contactInfo.abn = value;
+        else if (key.includes('hero badge') || key.includes('badge')) contactInfo.heroBadge = value;
+        else if (key.includes('hero subheadline') || key.includes('subheadline')) contactInfo.heroSubheadline = value; // Must check subheadline BEFORE headline
+        else if (key.includes('hero headline') || key.includes('headline')) contactInfo.heroHeadline = value;
+        else if (key.includes('hero tagline') || key.includes('tagline')) contactInfo.heroTagline = value;
+        else if (key.includes('hero background') || key.includes('hero image') || key.includes('background image')) contactInfo.heroBackgroundImage = value;
       });
     } else {
       // Key-Value format: each row is key | value
@@ -122,6 +137,11 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
         else if (key.includes('service area')) contactInfo.serviceArea = value;
         else if (key.includes('business hours') || key.includes('hours')) contactInfo.businessHours = value;
         else if (key.includes('abn')) contactInfo.abn = value;
+        else if (key.includes('hero badge') || key.includes('badge')) contactInfo.heroBadge = value;
+        else if (key.includes('hero subheadline') || key.includes('subheadline')) contactInfo.heroSubheadline = value; // Must check subheadline BEFORE headline
+        else if (key.includes('hero headline') || key.includes('headline')) contactInfo.heroHeadline = value;
+        else if (key.includes('hero tagline') || key.includes('tagline')) contactInfo.heroTagline = value;
+        else if (key.includes('hero background') || key.includes('hero image') || key.includes('background image')) contactInfo.heroBackgroundImage = value;
       });
     }
 
@@ -135,9 +155,16 @@ async function fetchFromGoogleSheets(): Promise<ContactInfo> {
       serviceArea: contactInfo.serviceArea || FALLBACK_DATA.serviceArea,
       businessHours: contactInfo.businessHours || FALLBACK_DATA.businessHours,
       abn: contactInfo.abn || FALLBACK_DATA.abn,
+      heroBadge: contactInfo.heroBadge || FALLBACK_DATA.heroBadge,
+      heroHeadline: contactInfo.heroHeadline || FALLBACK_DATA.heroHeadline,
+      heroTagline: contactInfo.heroTagline || FALLBACK_DATA.heroTagline,
+      heroSubheadline: contactInfo.heroSubheadline || FALLBACK_DATA.heroSubheadline,
+      heroBackgroundImage: contactInfo.heroBackgroundImage || FALLBACK_DATA.heroBackgroundImage,
     };
 
-    console.log("Fetched contact info from Google Sheets");
+    console.log("Fetched contact info from Google Sheets:");
+    console.log("- heroHeadline:", result.heroHeadline);
+    console.log("- heroSubheadline:", result.heroSubheadline);
     return result;
   } catch (error) {
     console.error("Error fetching contact info from Google Sheets:", error);

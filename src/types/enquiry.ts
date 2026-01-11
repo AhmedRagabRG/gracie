@@ -31,4 +31,9 @@ export interface ContactInfo {
   serviceArea: string;
   businessHours: string;
   abn: string;
+  heroBadge: string;
+  heroHeadline: string;
+  heroTagline: string;
+  heroSubheadline: string;
+  heroBackgroundImage: string;
 }
