@@ -376,31 +376,31 @@ export const TEAM_PHOTOS: GalleryImage[] = [
   {
     id: 17,
     src: "/images/website_images/24.jpg", // Ute + 3 people
-    alt: "Gracie Reticulation team with company vehicle",
+    alt: "",
     category: "team",
   },
   {
     id: 1,
     src: "/images/website_images/1.jpg",
-    alt: "Gracie Reticulation team at work",
+    alt: "",
     category: "team",
   },
   {
     id: 56,
     src: "/images/website_images/6.jpg",
-    alt: "Team member working on irrigation system",
+    alt: "",
     category: "team",
   },
   {
     id: 57,
     src: "/images/website_images/7.jpg",
-    alt: "Professional irrigation installation",
+    alt: "",
     category: "team",
   },
   {
     id: 58,
     src: "/images/website_images/8.jpg",
-    alt: "Team at irrigation project site",
+    alt: "",
     category: "team",
   },
 ];
