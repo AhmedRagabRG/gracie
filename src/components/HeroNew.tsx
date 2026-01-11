@@ -150,11 +150,11 @@ export function HeroNew() {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 gap-8 mt-16 pt-12 border-t border-white/10">
             <div>
-              <div className="text-3xl md:text-4xl font-light text-white mb-1">1,700+</div>
+              <div className="text-3xl md:text-4xl font-light text-white mb-1">2,000+</div>
               <div className="text-sm text-neutral-400">Jobs Completed</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-light text-white mb-1">15+</div>
+              <div className="text-3xl md:text-4xl font-light text-white mb-1">20</div>
               <div className="text-sm text-neutral-400">Years Experience</div>
             </div>
           </div>
